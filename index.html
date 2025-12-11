@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubhav's - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(1, 1, 50);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(9, 9, 73);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 23px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.01rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        /* HOME SECTION */
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+            padding: 0 20px;
+        }
+
+        .firstSection > div {
+            width: 38%;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+        }
+
+        .leftSection .buttons {
+            padding: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .leftSection .btn {
+            padding: 12px 20px;
+            background: #1e2167;
+            color: white;
+            border-radius: 6px;
+            border: 2px solid white;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .leftSection .btn:hover {
+            background: #2e3177;
+            transform: translateY(-2px);
+        }
+
+        .rightSection img {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .purple {
+            color: rgb(150, 79, 217);
+        }
+
+        #element {
+            color: rgb(150, 79, 217);
+        }
+
+        /* ABOUT SECTION */
+        .aboutSection {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: rgba(9, 9, 73, 0.3);
+        }
+
+        .aboutSection h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .aboutSection p {
+            color: #ccc;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* PROJECTS / EXPERIENCE */
+        .secondSection {
+            max-width: 80vw;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .secondSection .text-gray {
+            color: #9c97f1;
+            font-size: 1rem;
+        }
+
+        .secondSection h1 {
+            font-size: 2.5rem;
+            margin: 20px 0 40px 0;
+        }
+
+        .secondSection .box {
+            background: white;
+            width: 100%;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .secondSection .vertical {
+            height: 133px;
+            width: 1px;
+            background-color: white;
+            position: relative;
+        }
+
+        .image-top {
+            width: 25px;
+            position: absolute;
+            top: -34px;
+            left: -12px;
+        }
+
+        .vertical-title {
+            position: absolute;
+            top: 115px;
+            width: 150px;
+            left: -75px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .vertical-desc {
+            color: gray;
+            font-size: 10px;
+            width: 150px;
+            position: absolute;
+            top: 140px;
+            left: -75px;
+            text-align: center;
+        }
+
+        /* CONTACT SECTION */
+        .contactSection {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: rgba(9, 9, 73, 0.3);
+            margin-top: 80px;
+        }
+
+        .contactSection h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contactSection p {
+            color: #ccc;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0e0e1a;
+            margin-top: 0;
+        }
+
+        .footer {
+            display: flex;
+            padding: 40px 20px;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            padding: 5px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li:hover {
+            color: rgb(153, 153, 226);
+        }
+
+        .footer > div {
+            min-width: 200px;
+        }
+
+        .footer h3 {
+            color: rgb(150, 79, 217);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: rgb(153, 153, 226);
+        }
+
+        .footer-first {
+            font-weight: 400;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 1024px) {
+            .leftSection {
+                font-size: 2.5rem;
+            }
+
+            .secondSection .vertical {
+                margin: 0 4vw;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 10px;
+            }
+
+            .left {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            .firstSection {
+                flex-direction: column-reverse;
+                text-align: center;
+                margin: 60px 0;
+            }
+
+            .firstSection > div {
+                width: 100%;
+            }
+
+            .rightSection img {
+                width: 60vw;
+                margin-bottom: 40px;
+            }
+
+            .leftSection {
+                font-size: 2rem;
+            }
+
+            .leftSection .buttons {
+                justify-content: center;
+                padding: 30px 0;
+            }
+
+            .leftSection .btn {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+            main hr {
+                margin: 40px 20px;
+            }
+
+            .aboutSection,
+            .contactSection {
+                padding: 60px 15px;
+            }
+
+            .aboutSection h1,
+            .contactSection h1 {
+                font-size: 2rem;
+            }
+
+            .aboutSection p,
+            .contactSection p {
+                font-size: 1rem;
+            }
+
+            .secondSection {
+                max-width: 90vw;
+                margin: 60px auto;
+            }
+
+            .secondSection h1 {
+                font-size: 2rem;
+            }
+
+            .secondSection .box {
+                flex-direction: column;
+                height: auto;
+                width: 2px;
+                align-items: center;
+                margin: 40px auto;
+            }
+
+            .secondSection .vertical {
+                width: 93px;
+                height: 1px;
+                margin: 5vh 0;
+            }
+
+            .image-top {
+                width: 25px;
+                top: -12px;
+                left: -34px;
+            }
+
+            .vertical-title {
+                top: -75px;
+                left: 75px;
+                width: 150px;
+            }
+
+            .vertical-desc {
+                top: -50px;
+                left: 75px;
+                width: 150px;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .footer > div {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .leftSection {
+                font-size: 1.5rem;
+            }
+
+            .leftSection .btn {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .aboutSection h1,
+            .contactSection h1 {
+                font-size: 1.6rem;
+            }
+
+            .secondSection h1 {
+                font-size: 1.6rem;
+            }
+
+            .vertical-title {
+                font-size: 12px;
+                width: 120px;
+            }
+
+            .vertical-desc {
+                font-size: 10px;
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="left">Anubhav's - Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="firstSection">
+            <div class="leftSection">
+                <div>Hi, My name is <span class="purple">Anubhav</span></div>
+                <div>and I am a Passionate</div>
+                <span id="element"></span>
+
+                <div class="buttons">
+                    <a href="resume.pdf" class="btn" download>Download Resume</a>
+                    <a href="https://github.com/AnubhavBasuli" class="btn" target="_blank">Visit Github</a>
+                    <a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" class="btn" target="_blank">Visit LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="rightSection">
+                <img src="bn.png" alt="Profile Image">
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="aboutSection">
+            <h1>About Me</h1>
+            <p>Hello! I am Anubhav, a passionate developer skilled in frontend, backend, Python, UI design, and modern
+                web development. I love creating innovative solutions and bringing ideas to life through code.</p>
+        </section>
+
+        <hr>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="secondSection">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+
+                <div class="vertical">
+                    <img class="image-top" src="html.png" alt="HTML">
+                    <div class="vertical-title">HTML Development</div>
+                    <div class="vertical-desc">Building semantic and accessible web structures</div>
+                </div>
+
+                <div class="vertical">
+                    <img class="image-top" src="css.png" alt="CSS">
+                    <div class="vertical-title">CSS Development</div>
+                    <div class="vertical-desc">Creating beautiful and responsive designs</div>
+                </div>
+
+
+                <div class="vertical">
+                    <img class="image-top" src="javascript.png" alt="JavaScript">
+                    <div class="vertical-title">JavaScript Development</div>
+                    <div class="vertical-title"></div>
+
+                    <div class="vertical-desc">Adding interactivity and dynamic features</div>
+                </div>
+
+                <div class="vertical">
+                    <img class="image-top" src="python.png" alt="Python">
+                    <div class="vertical-title">Python Development</div>
+                    <div class="vertical-desc">Backend development and data processing</div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contactSection">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out for collaborations or opportunities!</p>
+        <p>Email: anubhavbasuli99@gmail.com</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Anubhav's Developer Portfolio</h3>
+                <p>Building innovative web solutions with passion and creativity.</p>
+            </div>
+            <div class="footer-second">
+                <h3>Contact Me</h3>
+                <ul>
+                    <li>📧 Email: anubhavbasuli99@gmail.com</li>
+                    <li>📱 Phone: +91 7029399278</li>
+                    <li>📍 Location: Panskura, West Bengal, India</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="https://github.com/AnubhavBasuli" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-rights">
+            Copyright © anubhavsportfolio.com | All rights reserved
+        </div>
+    </footer>
+
+    <!-- TYPED JS -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Frontend Developer', 'Backend Developer', 'Python Developer', 'UI Designer', 'Web Developer'],
+            typeSpeed: 50,
+            loop: true
+        });
+    </script>
+
+</body>
+
+</html>
