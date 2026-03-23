@@ -26,6 +26,64 @@
             font-family: "Poppins", sans-serif;
         }
 
+
+        /* ── THEME VARIABLES ───────────────────────────── */
+        :root {
+            /* Dark mode (default) */
+            --bg: rgb(1, 1, 50);
+            --nav-bg: rgb(9, 9, 73);
+            --text: white;
+            --text-muted: #ccc;
+            --text-gray: #aaa;
+            --about-bg: rgba(9, 9, 73, 0.3);
+            --footer-bg: #0e0e1a;
+            --footer-border: #333;
+            --btn-bg: #1e2167;
+            --btn-bg-hover: #2e3177;
+            --hr-color: #9c97f1;
+            --vertical-color: white;
+            --box-color: white;
+            --purple: rgb(150, 79, 217);
+            --purple-light: rgb(153, 153, 226);
+            --toggle-bg: #1a1a5e;
+            --toggle-border: rgba(255, 255, 255, 0.2);
+            --toggle-thumb: rgb(150, 79, 217);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --footer-text: #aaa;
+        }
+
+        body.light {
+            --bg: #f4f4ff;
+            --nav-bg: #ebebff;
+            --text: #0d0d2b;
+            --text-muted: #444;
+            --text-gray: #555;
+            --about-bg: rgba(220, 220, 255, 0.4);
+            --footer-bg: #dcdcf5;
+            --footer-border: #bbb;
+            --btn-bg: #d8d8ff;
+            --btn-bg-hover: #c5c5f5;
+            --hr-color: #9c97f1;
+            --vertical-color: #333;
+            --box-color: #555;
+            --purple: rgb(100, 40, 180);
+            --purple-light: rgb(100, 60, 200);
+            --toggle-bg: #e0e0ff;
+            --toggle-border: rgba(0, 0, 0, 0.15);
+            --toggle-thumb: rgb(100, 40, 180);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --footer-text: #f8f8f8;
+        }
+
+        /* ── GLOBAL ────────────────────────────────────── */
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Poppins", sans-serif;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+
         /* NAVBAR */
         nav {
             display: flex;
@@ -62,6 +120,74 @@
             font-size: 1.5rem;
         }
 
+        body.light .left {
+            color: white;
+        }
+
+
+        /* ── DARK / LIGHT TOGGLE ───────────────────────── */
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--toggle-bg);
+            border: 1.5px solid var(--toggle-border);
+            border-radius: 99px;
+            padding: 4px 6px 4px 10px;
+            cursor: pointer;
+            transition: background var(--transition), border-color var(--transition);
+            outline: none;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .theme-toggle-btn:focus-visible {
+            box-shadow: 0 0 0 3px rgba(150, 79, 217, 0.45);
+        }
+
+        .toggle-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text);
+            transition: color var(--transition);
+            user-select: none;
+            min-width: 36px;
+        }
+
+        .toggle-track {
+            width: 44px;
+            height: 24px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.12);
+            position: relative;
+            transition: background var(--transition);
+            flex-shrink: 0;
+        }
+
+        body.light .toggle-track {
+            background: rgba(9, 9, 73, 0.3);
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--toggle-thumb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s;
+        }
+
+        .toggle-thumb.moved {
+            transform: translateX(20px);
+        }
+
+        /* ── DIVIDER ───────────────────────────────────── */
         main hr {
             border: 0;
             background: #9c97f1;
@@ -78,7 +204,7 @@
             padding: 0 20px;
         }
 
-        .firstSection > div {
+        .firstSection>div {
             width: 38%;
         }
 
@@ -128,7 +254,7 @@
         .aboutSection {
             padding: 80px 20px;
             text-align: center;
-            background-color: rgba(9, 9, 73, 0.3);
+            background-color: var(--about-bg);
         }
 
         .aboutSection h1 {
@@ -137,7 +263,7 @@
         }
 
         .aboutSection p {
-            color: #ccc;
+            color: var(--text-muted);
             font-size: 1.1rem;
             max-width: 700px;
             margin: auto;
@@ -207,7 +333,7 @@
         .contactSection {
             padding: 80px 20px;
             text-align: center;
-            background-color: rgba(9, 9, 73, 0.3);
+            background-color: var(--about-bg);
             margin-top: 80px;
         }
 
@@ -217,7 +343,7 @@
         }
 
         .contactSection p {
-            color: #ccc;
+            color: var(--text-muted);
             font-size: 1.1rem;
             max-width: 700px;
             margin: 10px auto;
@@ -252,7 +378,7 @@
             color: rgb(153, 153, 226);
         }
 
-        .footer > div {
+        .footer>div {
             min-width: 200px;
         }
 
@@ -263,7 +389,7 @@
         }
 
         .footer p {
-            color: #aaa;
+            color: var(--footer-text);
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -287,6 +413,10 @@
             color: gray;
             padding: 20px 0;
             border-top: 1px solid #333;
+        }
+
+        .footer-second ul li {
+            Color: #fff;
         }
 
         /* RESPONSIVE */
@@ -327,7 +457,7 @@
                 margin: 60px 0;
             }
 
-            .firstSection > div {
+            .firstSection>div {
                 width: 100%;
             }
 
@@ -416,7 +546,7 @@
                 padding: 30px 20px;
             }
 
-            .footer > div {
+            .footer>div {
                 margin-bottom: 20px;
             }
         }
@@ -465,6 +595,17 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact Me</a></li>
+
+
+                    <!-- DARK / LIGHT TOGGLE -->
+                    <li>
+                        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark and light mode">
+                            <span class="toggle-label" id="toggleLabel">DARK</span>
+                            <div class="toggle-track">
+                                <div class="toggle-thumb" id="toggleThumb">🌙</div>
+                            </div>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -482,7 +623,8 @@
                 <div class="buttons">
                     <a href="resume.pdf" class="btn" download>Download Resume</a>
                     <a href="https://github.com/AnubhavBasuli" class="btn" target="_blank">Visit Github</a>
-                    <a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" class="btn" target="_blank">Visit LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" class="btn" target="_blank">Visit
+                        LinkedIn</a>
                 </div>
             </div>
 
@@ -565,7 +707,8 @@
                 <h3>Connect</h3>
                 <ul>
                     <li><a href="https://github.com/AnubhavBasuli" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.linkedin.com/in/anubhav-basuli-b729a3284/" target="_blank">LinkedIn</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -583,6 +726,36 @@
             strings: ['Frontend Developer', 'Backend Developer', 'Python Developer', 'UI Designer', 'Web Developer'],
             typeSpeed: 50,
             loop: true
+        });
+
+        // ── Dark / Light Mode Toggle ──────────────────────
+        const toggle = document.getElementById('themeToggle');
+        const label = document.getElementById('toggleLabel');
+        const thumb = document.getElementById('toggleThumb');
+
+        function applyTheme(isLight) {
+            if (isLight) {
+                document.body.classList.add('light');
+                label.textContent = 'LIGHT';
+                thumb.textContent = '☀️';
+                thumb.classList.add('moved');
+            } else {
+                document.body.classList.remove('light');
+                label.textContent = 'DARK';
+                thumb.textContent = '🌙';
+                thumb.classList.remove('moved');
+            }
+        }
+
+        // Restore saved preference on load
+        const savedTheme = localStorage.getItem('theme');
+        applyTheme(savedTheme === 'light');
+
+        // Toggle on click
+        toggle.addEventListener('click', function () {
+            const isLight = !document.body.classList.contains('light');
+            applyTheme(isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
     </script>
 
